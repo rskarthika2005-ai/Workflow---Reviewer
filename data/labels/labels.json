@@ -1,0 +1,237 @@
+{
+  "v1_basic": {
+    "split": "dev",
+    "type": "valid",
+    "status": "PASS",
+    "true_threshold": 30,
+    "primary": null,
+    "allowed": [],
+    "counterexample": null,
+    "expected_route": null
+  },
+  "v2_approved_change_25": {
+    "split": "dev",
+    "type": "valid",
+    "status": "PASS",
+    "true_threshold": 25,
+    "primary": null,
+    "allowed": [],
+    "counterexample": null,
+    "expected_route": null
+  },
+  "v3_unusual_formulation": {
+    "split": "heldout",
+    "type": "valid",
+    "status": "PASS",
+    "true_threshold": 30,
+    "primary": null,
+    "allowed": [],
+    "counterexample": null,
+    "expected_route": null
+  },
+  "d1_wrong_threshold_workflow": {
+    "split": "dev",
+    "type": "defect",
+    "status": "CHANGES_REQUIRED",
+    "true_threshold": 30,
+    "primary": {
+      "artifact": "workflow",
+      "kind": "route_mismatch",
+      "location": "wf#n3"
+    },
+    "allowed": [
+      [
+        "workflow",
+        "route_mismatch"
+      ]
+    ],
+    "counterexample": {
+      "category": "billing",
+      "urgent": false,
+      "waiting": 30
+    },
+    "expected_route": "escalation"
+  },
+  "d2_unapproved_change_applied": {
+    "split": "dev",
+    "type": "defect",
+    "status": "CHANGES_REQUIRED",
+    "true_threshold": 30,
+    "primary": {
+      "artifact": "spec",
+      "kind": "route_mismatch",
+      "location": "spec#S3"
+    },
+    "allowed": [
+      [
+        "spec",
+        "route_mismatch"
+      ]
+    ],
+    "counterexample": {
+      "category": "billing",
+      "urgent": false,
+      "waiting": 25
+    },
+    "expected_route": "normal_queue"
+  },
+  "d3_wrong_precedence": {
+    "split": "heldout",
+    "type": "defect",
+    "status": "CHANGES_REQUIRED",
+    "true_threshold": 30,
+    "primary": {
+      "artifact": "spec",
+      "kind": "route_mismatch",
+      "location": "spec#S3"
+    },
+    "allowed": [
+      [
+        "spec",
+        "route_mismatch"
+      ]
+    ],
+    "counterexample": {
+      "category": "billing",
+      "urgent": true,
+      "waiting": 30
+    },
+    "expected_route": "priority_queue"
+  },
+  "d4_missing_requirement": {
+    "split": "dev",
+    "type": "defect",
+    "status": "CHANGES_REQUIRED",
+    "true_threshold": 30,
+    "primary": {
+      "artifact": "requirements",
+      "kind": "omitted_requirement",
+      "location": "req#R2"
+    },
+    "allowed": [
+      [
+        "requirements",
+        "omitted_requirement"
+      ],
+      [
+        "spec",
+        "route_mismatch"
+      ]
+    ],
+    "counterexample": {
+      "category": "billing",
+      "urgent": true,
+      "waiting": 0
+    },
+    "expected_route": "priority_queue"
+  },
+  "d5_wrong_branch": {
+    "split": "dev",
+    "type": "defect",
+    "status": "CHANGES_REQUIRED",
+    "true_threshold": 30,
+    "primary": {
+      "artifact": "workflow",
+      "kind": "route_mismatch",
+      "location": "wf#n2"
+    },
+    "allowed": [
+      [
+        "workflow",
+        "route_mismatch"
+      ]
+    ],
+    "counterexample": {
+      "category": "other",
+      "urgent": true,
+      "waiting": 0
+    },
+    "expected_route": "priority_queue"
+  },
+  "d6_code_mismatch_injected": {
+    "split": "dev",
+    "type": "defect",
+    "status": "CHANGES_REQUIRED",
+    "true_threshold": 30,
+    "primary": {
+      "artifact": "code:c1",
+      "kind": "route_mismatch",
+      "location": "code#route"
+    },
+    "allowed": [
+      [
+        "code:c1",
+        "route_mismatch"
+      ]
+    ],
+    "counterexample": {
+      "category": "billing",
+      "urgent": false,
+      "waiting": 30
+    },
+    "expected_route": "escalation"
+  },
+  "d7_split_rules_interaction": {
+    "split": "heldout",
+    "type": "defect",
+    "status": "CHANGES_REQUIRED",
+    "true_threshold": 30,
+    "primary": {
+      "artifact": "spec",
+      "kind": "route_mismatch",
+      "location": "default"
+    },
+    "allowed": [
+      [
+        "spec",
+        "route_mismatch"
+      ]
+    ],
+    "counterexample": {
+      "category": "other",
+      "urgent": false,
+      "waiting": 30
+    },
+    "expected_route": "escalation"
+  },
+  "i1_conflicting_approvals": {
+    "split": "dev",
+    "type": "incomplete",
+    "status": "INCOMPLETE",
+    "true_threshold": null,
+    "primary": null,
+    "allowed": [],
+    "counterexample": null,
+    "expected_route": null
+  },
+  "i2_unsupported_text": {
+    "split": "heldout",
+    "type": "incomplete",
+    "status": "INCOMPLETE",
+    "true_threshold": 30,
+    "primary": null,
+    "allowed": [],
+    "counterexample": null,
+    "expected_route": null
+  },
+  "i3_model_failure": {
+    "split": "dev",
+    "type": "incomplete",
+    "status": "INCOMPLETE",
+    "true_threshold": 30,
+    "primary": null,
+    "allowed": [],
+    "counterexample": null,
+    "expected_route": null
+  },
+  "i4_oversized_input": {
+    "split": "dev",
+    "type": "incomplete",
+    "status": "INCOMPLETE",
+    "true_threshold": 30,
+    "primary": null,
+    "allowed": [],
+    "counterexample": null,
+    "expected_route": null
+  }
+}

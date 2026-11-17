@@ -1,0 +1,684 @@
+{
+  "split": "all",
+  "seed": 7,
+  "note": "model results use the fake client only; real model performance: not measured",
+  "baseline": {
+    "cases": 14,
+    "exact_match": "10/14",
+    "false_pass_on_defects": "0/7",
+    "false_pass_on_incomplete": "4/4",
+    "false_block_on_valid": "0/3",
+    "abstained_on_valid_or_defect": "0/10",
+    "incomplete_correct": "0/4",
+    "defect_found_with_location": "7/7",
+    "counterexamples_valid": "7/7",
+    "unsupported_findings": 0,
+    "runtime_seconds": 0.237,
+    "model_calls_fake_client": 0,
+    "model_retries_fake_client": 0
+  },
+  "final": {
+    "cases": 14,
+    "exact_match": "14/14",
+    "false_pass_on_defects": "0/7",
+    "false_pass_on_incomplete": "0/4",
+    "false_block_on_valid": "0/3",
+    "abstained_on_valid_or_defect": "0/10",
+    "incomplete_correct": "4/4",
+    "defect_found_with_location": "7/7",
+    "counterexamples_valid": "7/7",
+    "unsupported_findings": 0,
+    "runtime_seconds": 0.212,
+    "model_calls_fake_client": 3,
+    "model_retries_fake_client": 2
+  },
+  "ablation_workflow_check_off": {
+    "cases": 14,
+    "exact_match": "12/14",
+    "false_pass_on_defects": "2/7",
+    "false_pass_on_incomplete": "0/4",
+    "false_block_on_valid": "0/3",
+    "abstained_on_valid_or_defect": "0/10",
+    "incomplete_correct": "4/4",
+    "defect_found_with_location": "5/7",
+    "counterexamples_valid": "5/5",
+    "unsupported_findings": 0,
+    "runtime_seconds": 0.221,
+    "model_calls_fake_client": 3,
+    "model_retries_fake_client": 2
+  },
+  "ablation_changed_cases": [
+    {
+      "case": "d1_wrong_threshold_workflow",
+      "final": "CHANGES_REQUIRED",
+      "ablation": "PASS"
+    },
+    {
+      "case": "d5_wrong_branch",
+      "final": "CHANGES_REQUIRED",
+      "ablation": "PASS"
+    }
+  ],
+  "variants": {
+    "behavior_preserving_unchanged": "30/30",
+    "behavior_changing_detected": "2/2",
+    "details": [
+      {
+        "case": "d1_wrong_threshold_workflow",
+        "variant": "rename_ids",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d1_wrong_threshold_workflow",
+        "variant": "reorder",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d1_wrong_threshold_workflow",
+        "variant": "paraphrase",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d2_unapproved_change_applied",
+        "variant": "rename_ids",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d2_unapproved_change_applied",
+        "variant": "reorder",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d2_unapproved_change_applied",
+        "variant": "paraphrase",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d3_wrong_precedence",
+        "variant": "rename_ids",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d3_wrong_precedence",
+        "variant": "reorder",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d3_wrong_precedence",
+        "variant": "paraphrase",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d4_missing_requirement",
+        "variant": "rename_ids",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d4_missing_requirement",
+        "variant": "reorder",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d4_missing_requirement",
+        "variant": "paraphrase",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d5_wrong_branch",
+        "variant": "rename_ids",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d5_wrong_branch",
+        "variant": "reorder",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d5_wrong_branch",
+        "variant": "paraphrase",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d6_code_mismatch_injected",
+        "variant": "rename_ids",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d6_code_mismatch_injected",
+        "variant": "reorder",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d6_code_mismatch_injected",
+        "variant": "paraphrase",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d7_split_rules_interaction",
+        "variant": "rename_ids",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d7_split_rules_interaction",
+        "variant": "reorder",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d7_split_rules_interaction",
+        "variant": "paraphrase",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "v1_basic",
+        "variant": "rename_ids",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v1_basic",
+        "variant": "reorder",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v1_basic",
+        "variant": "paraphrase",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v1_basic",
+        "variant": "change_behavior",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "v2_approved_change_25",
+        "variant": "rename_ids",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v2_approved_change_25",
+        "variant": "reorder",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v2_approved_change_25",
+        "variant": "paraphrase",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v2_approved_change_25",
+        "variant": "change_behavior",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "v3_unusual_formulation",
+        "variant": "rename_ids",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v3_unusual_formulation",
+        "variant": "reorder",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v3_unusual_formulation",
+        "variant": "paraphrase",
+        "status": "PASS",
+        "ok": true
+      }
+    ]
+  },
+  "per_case_final": [
+    {
+      "case": "d1_wrong_threshold_workflow",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0301
+    },
+    {
+      "case": "d2_unapproved_change_applied",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.025
+    },
+    {
+      "case": "d3_wrong_precedence",
+      "split": "heldout",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0166
+    },
+    {
+      "case": "d4_missing_requirement",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0151
+    },
+    {
+      "case": "d5_wrong_branch",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0146
+    },
+    {
+      "case": "d6_code_mismatch_injected",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0146
+    },
+    {
+      "case": "d7_split_rules_interaction",
+      "split": "heldout",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0218
+    },
+    {
+      "case": "i1_conflicting_approvals",
+      "split": "dev",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "INCOMPLETE",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0144
+    },
+    {
+      "case": "i2_unsupported_text",
+      "split": "heldout",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "INCOMPLETE",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.015
+    },
+    {
+      "case": "i3_model_failure",
+      "split": "dev",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "INCOMPLETE",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 3,
+      "model_retries": 2,
+      "seconds": 0.014
+    },
+    {
+      "case": "i4_oversized_input",
+      "split": "dev",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "INCOMPLETE",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0009
+    },
+    {
+      "case": "v1_basic",
+      "split": "dev",
+      "type": "valid",
+      "expected": "PASS",
+      "actual": "PASS",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0097
+    },
+    {
+      "case": "v2_approved_change_25",
+      "split": "dev",
+      "type": "valid",
+      "expected": "PASS",
+      "actual": "PASS",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0094
+    },
+    {
+      "case": "v3_unusual_formulation",
+      "split": "heldout",
+      "type": "valid",
+      "expected": "PASS",
+      "actual": "PASS",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0109
+    }
+  ],
+  "per_case_baseline": [
+    {
+      "case": "d1_wrong_threshold_workflow",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0155
+    },
+    {
+      "case": "d2_unapproved_change_applied",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0154
+    },
+    {
+      "case": "d3_wrong_precedence",
+      "split": "heldout",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0107
+    },
+    {
+      "case": "d4_missing_requirement",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0146
+    },
+    {
+      "case": "d5_wrong_branch",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0173
+    },
+    {
+      "case": "d6_code_mismatch_injected",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0268
+    },
+    {
+      "case": "d7_split_rules_interaction",
+      "split": "heldout",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.019
+    },
+    {
+      "case": "i1_conflicting_approvals",
+      "split": "dev",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "PASS",
+      "correct": false,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0137
+    },
+    {
+      "case": "i2_unsupported_text",
+      "split": "heldout",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "PASS",
+      "correct": false,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0175
+    },
+    {
+      "case": "i3_model_failure",
+      "split": "dev",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "PASS",
+      "correct": false,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.018
+    },
+    {
+      "case": "i4_oversized_input",
+      "split": "dev",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "PASS",
+      "correct": false,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0233
+    },
+    {
+      "case": "v1_basic",
+      "split": "dev",
+      "type": "valid",
+      "expected": "PASS",
+      "actual": "PASS",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0145
+    },
+    {
+      "case": "v2_approved_change_25",
+      "split": "dev",
+      "type": "valid",
+      "expected": "PASS",
+      "actual": "PASS",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0161
+    },
+    {
+      "case": "v3_unusual_formulation",
+      "split": "heldout",
+      "type": "valid",
+      "expected": "PASS",
+      "actual": "PASS",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0143
+    }
+  ]
+}

@@ -1,0 +1,510 @@
+{
+  "split": "dev",
+  "seed": 7,
+  "note": "model results use the fake client only; real model performance: not measured",
+  "baseline": {
+    "cases": 10,
+    "exact_match": "7/10",
+    "false_pass_on_defects": "0/5",
+    "false_pass_on_incomplete": "3/3",
+    "false_block_on_valid": "0/2",
+    "abstained_on_valid_or_defect": "0/7",
+    "incomplete_correct": "0/3",
+    "defect_found_with_location": "5/5",
+    "counterexamples_valid": "5/5",
+    "unsupported_findings": 0,
+    "runtime_seconds": 0.071,
+    "model_calls_fake_client": 0,
+    "model_retries_fake_client": 0
+  },
+  "final": {
+    "cases": 10,
+    "exact_match": "10/10",
+    "false_pass_on_defects": "0/5",
+    "false_pass_on_incomplete": "0/3",
+    "false_block_on_valid": "0/2",
+    "abstained_on_valid_or_defect": "0/7",
+    "incomplete_correct": "3/3",
+    "defect_found_with_location": "5/5",
+    "counterexamples_valid": "5/5",
+    "unsupported_findings": 0,
+    "runtime_seconds": 0.071,
+    "model_calls_fake_client": 3,
+    "model_retries_fake_client": 2
+  },
+  "ablation_workflow_check_off": {
+    "cases": 10,
+    "exact_match": "8/10",
+    "false_pass_on_defects": "2/5",
+    "false_pass_on_incomplete": "0/3",
+    "false_block_on_valid": "0/2",
+    "abstained_on_valid_or_defect": "0/7",
+    "incomplete_correct": "3/3",
+    "defect_found_with_location": "3/5",
+    "counterexamples_valid": "3/3",
+    "unsupported_findings": 0,
+    "runtime_seconds": 0.048,
+    "model_calls_fake_client": 3,
+    "model_retries_fake_client": 2
+  },
+  "ablation_changed_cases": [
+    {
+      "case": "d1_wrong_threshold_workflow",
+      "final": "CHANGES_REQUIRED",
+      "ablation": "PASS"
+    },
+    {
+      "case": "d5_wrong_branch",
+      "final": "CHANGES_REQUIRED",
+      "ablation": "PASS"
+    }
+  ],
+  "variants": {
+    "behavior_preserving_unchanged": "21/21",
+    "behavior_changing_detected": "2/2",
+    "details": [
+      {
+        "case": "d1_wrong_threshold_workflow",
+        "variant": "rename_ids",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d1_wrong_threshold_workflow",
+        "variant": "reorder",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d1_wrong_threshold_workflow",
+        "variant": "paraphrase",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d2_unapproved_change_applied",
+        "variant": "rename_ids",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d2_unapproved_change_applied",
+        "variant": "reorder",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d2_unapproved_change_applied",
+        "variant": "paraphrase",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d4_missing_requirement",
+        "variant": "rename_ids",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d4_missing_requirement",
+        "variant": "reorder",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d4_missing_requirement",
+        "variant": "paraphrase",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d5_wrong_branch",
+        "variant": "rename_ids",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d5_wrong_branch",
+        "variant": "reorder",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d5_wrong_branch",
+        "variant": "paraphrase",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d6_code_mismatch_injected",
+        "variant": "rename_ids",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d6_code_mismatch_injected",
+        "variant": "reorder",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "d6_code_mismatch_injected",
+        "variant": "paraphrase",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "v1_basic",
+        "variant": "rename_ids",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v1_basic",
+        "variant": "reorder",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v1_basic",
+        "variant": "paraphrase",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v1_basic",
+        "variant": "change_behavior",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      },
+      {
+        "case": "v2_approved_change_25",
+        "variant": "rename_ids",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v2_approved_change_25",
+        "variant": "reorder",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v2_approved_change_25",
+        "variant": "paraphrase",
+        "status": "PASS",
+        "ok": true
+      },
+      {
+        "case": "v2_approved_change_25",
+        "variant": "change_behavior",
+        "status": "CHANGES_REQUIRED",
+        "ok": true
+      }
+    ]
+  },
+  "per_case_final": [
+    {
+      "case": "d1_wrong_threshold_workflow",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0112
+    },
+    {
+      "case": "d2_unapproved_change_applied",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.011
+    },
+    {
+      "case": "d4_missing_requirement",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0081
+    },
+    {
+      "case": "d5_wrong_branch",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.006
+    },
+    {
+      "case": "d6_code_mismatch_injected",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0071
+    },
+    {
+      "case": "i1_conflicting_approvals",
+      "split": "dev",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "INCOMPLETE",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0106
+    },
+    {
+      "case": "i3_model_failure",
+      "split": "dev",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "INCOMPLETE",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 3,
+      "model_retries": 2,
+      "seconds": 0.0055
+    },
+    {
+      "case": "i4_oversized_input",
+      "split": "dev",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "INCOMPLETE",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0007
+    },
+    {
+      "case": "v1_basic",
+      "split": "dev",
+      "type": "valid",
+      "expected": "PASS",
+      "actual": "PASS",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0056
+    },
+    {
+      "case": "v2_approved_change_25",
+      "split": "dev",
+      "type": "valid",
+      "expected": "PASS",
+      "actual": "PASS",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0051
+    }
+  ],
+  "per_case_baseline": [
+    {
+      "case": "d1_wrong_threshold_workflow",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.009
+    },
+    {
+      "case": "d2_unapproved_change_applied",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.007
+    },
+    {
+      "case": "d4_missing_requirement",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0045
+    },
+    {
+      "case": "d5_wrong_branch",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.007
+    },
+    {
+      "case": "d6_code_mismatch_injected",
+      "split": "dev",
+      "type": "defect",
+      "expected": "CHANGES_REQUIRED",
+      "actual": "CHANGES_REQUIRED",
+      "correct": true,
+      "found_primary": true,
+      "unsupported_findings": 0,
+      "cex_total": 1,
+      "cex_valid": 1,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.005
+    },
+    {
+      "case": "i1_conflicting_approvals",
+      "split": "dev",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "PASS",
+      "correct": false,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.008
+    },
+    {
+      "case": "i3_model_failure",
+      "split": "dev",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "PASS",
+      "correct": false,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0064
+    },
+    {
+      "case": "i4_oversized_input",
+      "split": "dev",
+      "type": "incomplete",
+      "expected": "INCOMPLETE",
+      "actual": "PASS",
+      "correct": false,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.0138
+    },
+    {
+      "case": "v1_basic",
+      "split": "dev",
+      "type": "valid",
+      "expected": "PASS",
+      "actual": "PASS",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.005
+    },
+    {
+      "case": "v2_approved_change_25",
+      "split": "dev",
+      "type": "valid",
+      "expected": "PASS",
+      "actual": "PASS",
+      "correct": true,
+      "found_primary": false,
+      "unsupported_findings": 0,
+      "cex_total": 0,
+      "cex_valid": 0,
+      "model_calls": 0,
+      "model_retries": 0,
+      "seconds": 0.005
+    }
+  ]
+}

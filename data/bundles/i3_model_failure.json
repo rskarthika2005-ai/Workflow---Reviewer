@@ -1,0 +1,85 @@
+{
+  "requirements": [
+    {
+      "req_id": "R1",
+      "text": "category is missing",
+      "route": "manual_review",
+      "order": 1,
+      "location": "req#R1"
+    },
+    {
+      "req_id": "R2",
+      "text": "ticket is urgent",
+      "route": "priority_queue",
+      "order": 2,
+      "location": "req#R2"
+    },
+    {
+      "req_id": "R3",
+      "text": "waiting >= 30 minutes",
+      "route": "escalation",
+      "order": 3,
+      "location": "req#R3"
+    }
+  ],
+  "spec_rules": [
+    {
+      "rule_id": "S1",
+      "ref_id": "R1",
+      "condition_text": "category is missing",
+      "route": "manual_review",
+      "order": 1,
+      "location": "spec#S1"
+    },
+    {
+      "rule_id": "S2",
+      "ref_id": "R2",
+      "condition_text": "ticket is urgent",
+      "route": "priority_queue",
+      "order": 2,
+      "location": "spec#S2"
+    },
+    {
+      "rule_id": "S3",
+      "ref_id": "R3",
+      "condition_text": "waiting >= 30 minutes",
+      "route": "escalation",
+      "order": 3,
+      "location": "spec#S3"
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "n1",
+      "condition_text": "category is missing",
+      "if_true": "manual_review",
+      "if_false": "n2",
+      "location": "wf#n1"
+    },
+    {
+      "node_id": "n2",
+      "condition_text": "ticket is urgent",
+      "if_true": "priority_queue",
+      "if_false": "n3",
+      "location": "wf#n2"
+    },
+    {
+      "node_id": "n3",
+      "condition_text": "waiting >= 30 minutes",
+      "if_true": "escalation",
+      "if_false": "normal_queue",
+      "location": "wf#n3"
+    }
+  ],
+  "snippets": [
+    {
+      "snippet_id": "c1",
+      "node_id": "n1",
+      "code": "def route(category, urgent, waiting):\n    if category is None:\n        return \"manual_review\"\n    if urgent is True:\n        return \"priority_queue\"\n    if waiting is not None and waiting >= 30:\n        return \"escalation\"\n    return \"normal_queue\"\n",
+      "location": "code#route"
+    }
+  ],
+  "approvals": [],
+  "start_node": "n1",
+  "model_mode": "timeout"
+}
