@@ -61,12 +61,12 @@ Optional model note (fake client only), validated before use
         ↓
 Status computed in code: PASS • CHANGES_REQUIRED • INCOMPLETE
         ↓
-JSON report • CLI • Evaluation reports
+JSON report • CLI • Evaluation reports • Dashboard
 ```
 
 ### Quick Navigation
 
-[Objective](#-project-objective) • [Overview](#-project-overview) • [What It Catches](#-what-the-reviewer-catches) • [How I Solved It](#-how-i-solved-it) • [Results](#-results) • [AI Tools & Cost](#-ai-tools--cost) • [Skills](#-skills-demonstrated) • [Structure](#-project-structure) • [How to Run](#-how-to-run) • [Limitations](#-limitations) • [Recommendation](#-final-recommendation)
+[Objective](#-project-objective) • [Overview](#-project-overview) • [What It Catches](#-what-the-reviewer-catches) • [How I Solved It](#-how-i-solved-it) • [Results](#-results) • [Dashboard](#-dashboard) • [AI Tools & Cost](#-ai-tools--cost) • [Skills](#-skills-demonstrated) • [Structure](#-project-structure) • [How to Run](#-how-to-run) • [Documentation](#-documentation) • [Limitations](#-limitations) • [Recommendation](#-final-recommendation)
 
 ---
 
@@ -213,6 +213,11 @@ Bundles were written by hand and planted with one known defect each. Expected an
 - 4 bundles are held out from tuning.
 - Baseline vs final on the same set, one ablation, and paired variants (rename IDs, reorder records, paraphrase, behavior change).
 
+### Stage 5: Dashboard
+
+- A small dark-theme page in plain HTML, CSS and JavaScript (no framework) that shows the evaluation results and opens a JSON report from `reports/` as a table.
+- `serve_ui.py` starts a local server and opens the page in the browser.
+
 ---
 
 ## ✦ RESULTS
@@ -260,6 +265,30 @@ The baseline finds the same 7 defects, but it passes every incomplete bundle. It
 
 ---
 
+## ✦ DASHBOARD
+
+The `ui/` folder has a small dashboard built with plain HTML, CSS and JavaScript. It needs no install and no internet.
+
+| Section | What it shows |
+|---|---|
+| Stat cards | Tests passing, exact match, false passes, incomplete cases handled |
+| Evaluation table | Tabs for All, Dev and Held-out |
+| Bar chart | Baseline vs ablation vs final |
+| Status guide | What PASS, CHANGES_REQUIRED and INCOMPLETE mean |
+| Report viewer | Choose a JSON report from `reports/` and see it as a table |
+
+Run it with:
+
+```bash
+python serve_ui.py
+```
+
+This starts a local server and opens `http://localhost:8000` in the browser. Press `Ctrl+C` in the terminal to stop it. You can also open `ui/index.html` directly in a browser.
+
+The numbers on the dashboard are typed in from `docs/ENGINEERING_NOTE.md`. The report viewer reads the file in your browser and uploads nothing.
+
+---
+
 ## ✦ AI TOOLS & COST
 
 The reviewer is **deterministic**. Parsing, approvals, routing, comparison and status all run locally in Python. There is no paid API and no GPU.
@@ -268,9 +297,10 @@ The reviewer is **deterministic**. Parsing, approvals, routing, comparison and s
 |---|---|---|
 | Python 3.13 | The whole application | None |
 | Pytest 8.3.4 | Tests | None |
+| HTML, CSS, JavaScript | The dashboard in `ui/` | None |
 | Git / GitHub | Version control, tags | None |
 | Fake model client | Reproducible tests of the model interface | None |
-| Claude | Planning, coding help, debugging and checking, see `docs/` AI note | Depends on the account |
+| Claude | Planning, coding help, debugging and checking, see `docs/AI_NOTE.md` | Depends on the account |
 
 ### Real model
 
@@ -286,6 +316,7 @@ Fake-client results test the validation and failure handling. They do not show h
 
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
 <img src="https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white"/>
+<img src="https://img.shields.io/badge/HTML%20CSS%20JS-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
 <img src="https://img.shields.io/badge/Git%20%26%20GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
 
 </div>
@@ -300,6 +331,7 @@ Fake-client results test the validation and failure handling. They do not show h
 | 🤖 **Model integration** | Built an interface, a fake client, output validation and bounded retries |
 | 🧪 **Honest evaluation** | Independent oracle, held-out bundles, baseline, ablation and paired variants |
 | 🐞 **Regression testing** | 46 tests, including ones that lock in fixes |
+| 🖥️ **Simple front end** | A dark-theme dashboard in plain HTML, CSS and JavaScript that shows results and reads a JSON report |
 | 🗂️ **Clean project structure** | One clear job per module, one command to run everything |
 
 ---
@@ -313,7 +345,8 @@ workflow-reviewer/
 ├── requirements.txt             # Pinned Python libraries
 ├── pytest.ini                   # Test and import paths
 ├── Makefile                     # make all = tests + eval
-├── run_all.bat                  # Same as make all, for Windows
+├── run_all.bat                  # Same as make all, then opens the dashboard (Windows)
+├── serve_ui.py                  # Starts a local server and opens the dashboard
 ├── .gitignore                   # Keeps the virtual environment and caches out of git
 │
 ├── src/reviewer/
@@ -335,9 +368,16 @@ workflow-reviewer/
 ├── eval/
 │   └── run_eval.py              # Baseline vs final, ablation, paired variants
 │
+├── ui/
+│   ├── index.html               # Dashboard page
+│   ├── style.css                # Dark theme styles
+│   └── script.js                # Tabs, bar chart and report viewer
+│
 ├── tests/                       # test_step1 to test_step4 (46 tests)
 ├── reports/                     # JSON evaluation reports (all, dev, heldout)
-└── docs/                        # Engineering note and AI note
+└── docs/
+    ├── ENGINEERING_NOTE.md      # Scope, design choices, evaluation, limitations
+    └── AI_NOTE.md               # How AI was used and how the output was checked
 ```
 
 ---
@@ -356,14 +396,20 @@ pip install -r requirements.txt
 
 Tested with Python 3.13.9. No API key or internet is needed.
 
-### One command: tests and evaluation
+### One command: tests, evaluation and dashboard
 
 ```bash
 run_all.bat        # Windows
-make all           # if make is installed
+make all           # if make is installed (tests and evaluation only)
 ```
 
-This rebuilds the bundles and labels, runs the tests, then runs the evaluation on the `all`, `dev` and `heldout` splits. Reports are written to `reports/`.
+This rebuilds the bundles and labels, runs the tests, then runs the evaluation on the `all`, `dev` and `heldout` splits. Reports are written to `reports/`. On Windows, `run_all.bat` then opens the dashboard in the browser. Press `Ctrl+C` to stop the server.
+
+### Open only the dashboard
+
+```bash
+python serve_ui.py
+```
 
 ### Review one bundle
 
@@ -382,6 +428,13 @@ python eval\run_eval.py --split heldout
 
 ---
 
+## ✦ DOCUMENTATION
+
+- [Engineering note](docs/ENGINEERING_NOTE.md): scope, design choices, evaluation, debugging examples and limitations
+- [AI assistance note](docs/AI_NOTE.md): how AI was used and how the output was checked
+
+---
+
 ## ✦ LIMITATIONS
 
 - **Small, self-written dataset.** 14 bundles show the reviewer works on the declared language. They do not show general accuracy.
@@ -392,6 +445,7 @@ python eval\run_eval.py --split heldout
 - **Reconstructed baseline.** The step 1-2 baseline is rebuilt in `eval/run_eval.py`, not taken from a separate tagged commit.
 - **No real model.** Real model performance was not measured.
 - **Small variant sample.** Only 2 behavior-changing variants were tested.
+- **Static dashboard numbers.** The stat cards and tables in the dashboard are typed in, so they must be updated by hand if the evaluation changes. Only the report viewer reads live files.
 
 ---
 
@@ -405,15 +459,3 @@ Before relying on it for new policies:
 2. Extend the condition language only with matching tests and labels.
 3. Connect a real model and label its results separately from the fake client.
 4. Do **not** describe it as verifying arbitrary prose or Python.
-
----
-
-<div align="center">
-
-### Karthika S
-
-📧 [rskarthika08@gmail.com](mailto:rskarthika08@gmail.com)
-
-*Workflow Reviewer • Deterministic Review of Routing Workflows*
-
-</div>
