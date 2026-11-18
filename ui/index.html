@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workflow Reviewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <h1>Workflow Reviewer</h1>
+      <p class="subtitle">
+        Checks that the requirements, spec, workflow and Python code route a
+        support ticket the same way, and reports any mismatch as a defect.
+      </p>
+      <span class="badge">tag final-v1 | fake model client only</span>
+
+      <div class="stats">
+        <div class="card"><h3>46</h3><p>tests passing</p></div>
+        <div class="card"><h3>14/14</h3><p>exact match on eval bundles</p></div>
+        <div class="card"><h3>0/7</h3><p>false passes on defects</p></div>
+        <div class="card"><h3>4/4</h3><p>incomplete cases handled</p></div>
+      </div>
+    </header>
+
+    <!-- Evaluation table -->
+    <section>
+      <h2>Evaluation</h2>
+      <div id="tabs"></div>
+      <div class="table-box">
+        <table id="evalTable"></table>
+      </div>
+      <p class="note">Held-out bundles: v3, d3, d7, i2. Labels are hand-written and checked with an independent oracle.</p>
+    </section>
+
+    <!-- Baseline vs final -->
+    <section>
+      <h2>Baseline vs Final vs Ablation</h2>
+      <div class="card" id="bars"></div>
+      <p class="note">Ablation means the workflow check is switched off.</p>
+    </section>
+
+    <!-- Status explanation -->
+    <section>
+      <h2>How the status is decided</h2>
+      <div class="status-row">
+        <div class="card">
+          <span class="pill CHANGES_REQUIRED">CHANGES_REQUIRED</span>
+          <p>Any blocker finding. The artifacts route a ticket differently.</p>
+        </div>
+        <div class="card">
+          <span class="pill INCOMPLETE">INCOMPLETE</span>
+          <p>Something could not be reviewed (unsupported text, approval conflict, oversized input, failed check).</p>
+        </div>
+        <div class="card">
+          <span class="pill PASS">PASS</span>
+          <p>No findings and nothing left unreviewed. Decided in code, not by the model.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Report viewer -->
+    <section>
+      <h2>View a report</h2>
+      <div class="card">
+        <input type="file" id="fileInput" accept=".json">
+        <p class="note">Choose a JSON report from the reports folder. It is read in your browser only.</p>
+      </div>
+      <div id="output"></div>
+    </section>
+
+    <!-- Limitations -->
+    <section>
+      <h2>Limitations</h2>
+      <ul>
+        <li>Small self-written set of 14 bundles, so it is not a general accuracy claim.</li>
+        <li>Only the fake model client was used. No real-model results.</li>
+        <li>Equivalence is checked on the declared grid, not for arbitrary code.</li>
+        <li>Other ticket fields, loops and function calls in code are unsupported.</li>
+      </ul>
+    </section>
+
+    <footer>Numbers are from docs/ENGINEERING_NOTE.md</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
