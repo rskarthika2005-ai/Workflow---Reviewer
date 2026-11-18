@@ -427,11 +427,10 @@ python eval\run_eval.py --split heldout
 ```
 
 ---
-
 ## ✦ DOCUMENTATION
 
-- [Engineering note](docs/ENGINEERING_NOTE.md): scope, design choices, evaluation, debugging examples and limitations
-- [AI assistance note](docs/AI_NOTE.md): how AI was used and how the output was checked
+- [Engineering note](docs/Engineering%20Note.pdf): scope, design choices, evaluation, debugging examples and limitations
+- [AI assistance note](docs/AI%20NOTE.pdf): how AI was used and how the output was checked
 
 ---
 
